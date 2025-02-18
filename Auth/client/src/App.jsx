@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
 import './App.css'
 import axios from 'axios'
 function App() {
@@ -10,6 +12,8 @@ function App() {
     username: '',
     password: ''
   })
+
+  const nav = useNavigate()
   
   const handleLogin = (e) => {
     console.log("login", e.target.value)
@@ -26,14 +30,16 @@ function App() {
     axios({
       method: 'post',
       url: 'http://localhost:3000/login',
-      data: login
+      data: login,
+      withCredentials: true
     })
       .then(res => {
         console.log("res", res.data)
          
           if(res.data.msg === "good login"){
 
-            alert(`Welcome back : ${res.data.found.username}`)
+            // alert(`Welcome back : ${res.data.found.username}`)
+            nav("/loggedIn")
             
           }else {
             

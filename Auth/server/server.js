@@ -3,12 +3,15 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 const app = express()
 const Router = require("./routes/routes")
+const cookieParser = require('cookie-parser');
 
 
 require('dotenv').config()
 
 app.use(cors(
-    { origin: 'http://localhost:5173' }
+    { origin: 'http://localhost:5173',
+        credentials: true
+     }
 ))
 
 app.use(express.json())
