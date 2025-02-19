@@ -63,7 +63,7 @@ module.exports = {
                             httpOnly: true,
                             maxAge: 3600000
                         })
-                        .json({ msg: "good login", found, token })
+                        .json({ msg: "good login", found})
 
 
 
@@ -80,9 +80,12 @@ module.exports = {
                 }
 
             })
-    }
+    },
 
     // Add new code for authCheck Route and JWT verify
+    authCheck: (req, res) => {
+        console.log("AUTH CHECK", req.headers)
+    }
 
 
 }
