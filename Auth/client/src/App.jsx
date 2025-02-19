@@ -39,7 +39,7 @@ function App() {
           if(res.data.msg === "good login"){
 
             // alert(`Welcome back : ${res.data.found.username}`)
-            nav("/loggedIn")
+            nav("/admin")
             
           }else {
             

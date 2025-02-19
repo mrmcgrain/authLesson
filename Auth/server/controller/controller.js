@@ -52,7 +52,7 @@ module.exports = {
                 if (bcrypt.compareSync(req.body.password, found.password)) {
                     console.log("Good Login")
 
-                    const token = jwt.sign({ username: found.username }, process.env.SECRET_KEY, {
+                    const token = jwt.sign({ username: found.username, _id: found._id }, process.env.SECRET_KEY, {
                         expiresIn: '1h'
                     })
 
@@ -82,7 +82,7 @@ module.exports = {
             })
     }
 
-
+    // Add new code for authCheck Route and JWT verify
 
 
 }

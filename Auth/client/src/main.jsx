@@ -4,7 +4,8 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route } from 'react-router-dom';
-import LoggedIn from './LoggedIn.JSX'
+import LoggedIn from './LoggedIn.jsx'
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -18,8 +19,13 @@ createRoot(document.getElementById('root')).render(
 
         <Route path="/" element={<App />} />
 
-        <Route path="/loggedIn" element={<LoggedIn />} />
+        <Route path="/admin/" element={<ProtectedRoute />}>
+        
+          <Route path="loggedin" element={<LoggedIn />} />
 
+
+
+        </Route>
 
 
       </Routes>
