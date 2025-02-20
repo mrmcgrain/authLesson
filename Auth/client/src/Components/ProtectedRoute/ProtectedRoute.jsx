@@ -15,7 +15,7 @@ const ProtectedRoute = () => {
     })
       .then((res) => {
         console.warn("PROT ROUTE auth res", res);
-        if (res.data.message !== "proceed") {
+        if (res.data.msg !== "valid token") {
           nav("/");
         }
       })

@@ -20,13 +20,11 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
 
         <Route path="/admin/" element={<ProtectedRoute />}>
-        
+
           <Route path="loggedin" element={<LoggedIn />} />
 
 
-
         </Route>
-
 
       </Routes>
 

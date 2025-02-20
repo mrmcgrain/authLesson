@@ -65,38 +65,50 @@ module.exports = {
                         })
                         .json({ msg: "good login", found })
 
+
+
+
+
+                    // res.json({msg: "good login", found})
+
+
                 }
 
                 else {
                     console.log("Bad Login")
                     res.json({ msg: "Bad LOGIN" })
                 }
+
             })
     },
 
     // Add new code for authCheck Route and JWT verify
     authCheck: (req, res) => {
-        console.log("AUTH CHECK", req.headers.cookie)
+        console.log("AUTH CHECK", req.user)
         // if (!req.headers.cookie) {
         //     console.log("NO COOKIE")
-        //     res.json({ msg: "no coookie" })
+        //     res.json({ msg: "no cookie" })
         // } else {
-        //     console.log("$$$$", req.headers.cookie.split("="))
-        //     const split = req.headers.cookie.split("=")
-        //     console.log("SPILT", split[1])
+        //     console.log("$$$", req.headers.cookie.split("="))
+        //     let split = req.headers.cookie.split("=")
+        //     console.log("SPLIT", split[1])
+        //     jwt.verify(split[1], process.env.SECRET_KEY, (err, payload) => {
+        //         if (err) {
+        //             console.log("JWT ERROR")
+        //             res.json({ msg: "JWT ERROR" })
+        //         }
+        //         console.log("PAYLOAD", payload)
+        //         Auth.findById(payload._id)
+        //             // Auth.findOne({username: payload.username})
+        //             .then(found => {
+        //                 console.log("found", found)
+        //                 res.json({ msg: "valid token", found })
 
-        //     const decoded = jwt.verify(split[1], process.env.SECRET_KEY)
-        //     console.log("decoded", decoded)
-            
-        //     if (!decoded.username) {
-        //         res.json({ msg: "bad token" })
-        //     } else {
-        //         res.json({ msg: "valid token" })
-        //     }
-            
-          
-        //     }
-        }
-            
+        //             })
+        //             .catch(err => console.log("err", err))
+        //     })
+        // }
+    }
+
 
 }
